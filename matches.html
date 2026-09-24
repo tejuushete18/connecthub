@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub | Connections</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                C
+            </span>
+
+            <span class="logo-text">
+                Connect<span>Hub</span>
+            </span>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="dashboard.html" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="discover.html" class="nav-link">
+                Discover
+            </a>
+
+            <a href="matches.html" class="nav-link active">
+                Connections
+            </a>
+
+            <a href="chat.html" class="nav-link">
+                Messages
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                Profile
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="connections-page">
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="connections-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR NETWORK
+                </span>
+
+                <h1>
+                    My Connections 👥
+                </h1>
+
+                <p>
+                    People you've connected with on ConnectHub.
+                </p>
+
+            </div>
+
+
+            <div class="connection-count-box">
+
+                <strong id="connectionCount">
+                    0
+                </strong>
+
+                <span>
+                    Connections
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="connection-search">
+
+            <span>
+                🔎
+            </span>
+
+            <input
+                type="text"
+                id="connectionSearch"
+                placeholder="Search your connections..."
+            >
+
+        </div>
+
+
+
+        <!-- REMOVE CONFIRMATION -->
+
+        <div
+            id="removeConfirm"
+            style="display:none;">
+
+            <p>
+                Are you sure you want to remove this connection?
+            </p>
+
+            <button
+                type="button"
+                id="confirmRemoveBtn"
+                class="btn btn-primary">
+
+                Yes, Remove
+
+            </button>
+
+            <button
+                type="button"
+                id="cancelRemoveBtn"
+                class="btn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+
+
+        <!-- CONNECTIONS -->
+
+        <div
+            class="matches-grid"
+            id="connectionsGrid">
+
+            <!-- JavaScript profiles yahan show karega -->
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<script src="script.js"></script>
+
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const grid =
+            document.getElementById(
+                "connectionsGrid"
+            );
+
+
+        const searchInput =
+            document.getElementById(
+                "connectionSearch"
+            );
+
+
+        const countElement =
+            document.getElementById(
+                "connectionCount"
+            );
+
+
+        const removeConfirm =
+            document.getElementById(
+                "removeConfirm"
+            );
+
+
+        const confirmRemoveBtn =
+            document.getElementById(
+                "confirmRemoveBtn"
+            );
+
+
+        const cancelRemoveBtn =
+            document.getElementById(
+                "cancelRemoveBtn"
+            );
+
+
+        let selectedRemoveId = null;
+
+
+
+        /* =========================
+           GET CONNECTIONS
+        ========================= */
+
+        function getConnections() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "connectHubConnections"
+                )
+            ) || [];
+
+        }
+
+
+
+        /* =========================
+           SAVE CONNECTIONS
+        ========================= */
+
+        function saveConnections(
+            connections
+        ) {
+
+            localStorage.setItem(
+                "connectHubConnections",
+                JSON.stringify(
+                    connections
+                )
+            );
+
+        }
+
+
+
+        /* =========================
+           SHOW REMOVE CONFIRM
+        ========================= */
+
+        function showRemoveConfirmation(id) {
+
+            selectedRemoveId = id;
+
+            removeConfirm.style.display = "block";
+
+            removeConfirm.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+
+
+        /* =========================
+           HIDE REMOVE CONFIRM
+        ========================= */
+
+        function hideRemoveConfirmation() {
+
+            selectedRemoveId = null;
+
+            removeConfirm.style.display = "none";
+
+        }
+
+
+
+        /* =========================
+           RENDER
+        ========================= */
+
+        function renderConnections(
+            searchText = ""
+        ) {
+
+
+            const connections =
+                getConnections();
+
+
+            countElement.textContent =
+                connections.length;
+
+
+            grid.innerHTML = "";
+
+
+
+            const filtered =
+                connections.filter(
+                    function (profile) {
+
+                        const name =
+                            (
+                                profile.name ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const city =
+                            (
+                                profile.city ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const search =
+                            searchText.toLowerCase();
+
+
+                        return (
+                            name.includes(search) ||
+                            city.includes(search)
+                        );
+
+                    }
+                );
+
+
+
+            /* EMPTY */
+
+            if (
+                connections.length === 0
+            ) {
+
+                grid.innerHTML = `
+
+                    <div class="connections-empty">
+
+                        <div class="connections-empty-icon">
+                            👥
+                        </div>
+
+                        <h2>
+                            No connections yet
+                        </h2>
+
+                        <p>
+                            Discover people who share
+                            your interests and start
+                            building your network.
+                        </p>
+
+                        <a
+                            href="discover.html"
+                            class="btn btn-primary">
+
+                            Discover People →
+
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            /* SEARCH EMPTY */
+
+            if (
+                filtered.length === 0
+            ) {
+
+                grid.innerHTML = `
+
+                    <div class="connections-empty">
+
+                        <div class="connections-empty-icon">
+                            🔎
+                        </div>
+
+                        <h2>
+                            No results found
+                        </h2>
+
+                        <p>
+                            Try searching with another
+                            name or city.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            /* CREATE CARDS */
+
+            filtered.forEach(
+                function (profile) {
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "connection-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="connection-card-top">
+
+                            <div class="connection-avatar">
+
+                                ${
+                                    profile.avatar ||
+                                    "👤"
+                                }
+
+                            </div>
+
+
+                            ${
+                                profile.online
+                                ?
+                                `
+                                <span class="connection-online">
+                                    <span></span>
+                                    Online
+                                </span>
+                                `
+                                :
+                                `
+                                <span class="connection-offline">
+                                    Offline
+                                </span>
+                                `
+                            }
+
+                        </div>
+
+
+
+                        <div class="connection-card-info">
+
+                            <h3>
+                                ${
+                                    profile.name ||
+                                    "User"
+                                }
+                            </h3>
+
+
+                            <p>
+                                ${
+                                    profile.age
+                                    ?
+                                    profile.age + " • "
+                                    :
+                                    ""
+                                }
+
+                                ${
+                                    profile.city ||
+                                    "Unknown"
+                                }
+                            </p>
+
+
+                            <p class="connection-bio">
+
+                                ${
+                                    profile.bio ||
+                                    "Nice to connect with you!"
+                                }
+
+                            </p>
+
+
+                            <div class="connection-interests">
+
+                                ${
+                                    profile.interests
+                                    ?
+                                    profile.interests
+                                        .slice(0, 3)
+                                        .map(
+                                            function (interest) {
+                                                return `
+                                                    <span>
+                                                        ${interest}
+                                                    </span>
+                                                `;
+                                            }
+                                        )
+                                        .join("")
+                                    :
+                                    ""
+                                }
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="connection-actions">
+
+                            <a
+                                href="chat.html"
+                                class="btn btn-primary connection-message-btn">
+
+                                💬 Message
+
+                            </a>
+
+
+                            <button
+                                type="button"
+                                class="connection-remove"
+                                data-id="${profile.id}">
+
+                                🗑 Remove
+
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    grid.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+
+            /* =========================
+               REMOVE BUTTONS
+            ========================= */
+
+            document
+                .querySelectorAll(
+                    ".connection-remove"
+                )
+                .forEach(
+                    function (button) {
+
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+                                const id =
+                                    Number(
+                                        button.dataset.id
+                                    );
+
+                                showRemoveConfirmation(
+                                    id
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+        }
+
+
+
+        /* =========================
+           CONFIRM REMOVE
+        ========================= */
+
+        confirmRemoveBtn.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    selectedRemoveId === null
+                ) {
+                    return;
+                }
+
+
+                const connections =
+                    getConnections();
+
+
+                const updated =
+                    connections.filter(
+                        function (profile) {
+
+                            return (
+                                Number(
+                                    profile.id
+                                ) !== selectedRemoveId
+                            );
+
+                        }
+                    );
+
+
+                saveConnections(
+                    updated
+                );
+
+
+                hideRemoveConfirmation();
+
+
+                renderConnections(
+                    searchInput.value
+                );
+
+
+                if (
+                    typeof showNotification ===
+                    "function"
+                ) {
+
+                    showNotification(
+                        "Connection Removed",
+                        "The connection was removed successfully."
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           CANCEL REMOVE
+        ========================= */
+
+        cancelRemoveBtn.addEventListener(
+            "click",
+            function () {
+
+                hideRemoveConfirmation();
+
+            }
+        );
+
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                renderConnections(
+                    searchInput.value
+                );
+
+            }
+        );
+
+
+
+        /* =========================
+           INITIAL LOAD
+        ========================= */
+
+        renderConnections();
+
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

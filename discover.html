@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Discover | ConnectHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="app-page">
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">♥</div>
+
+            <div class="logo-text">
+                Connect<span>Hub</span>
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="discover.html"
+                class="nav-link active"
+            >
+                Discover
+            </a>
+
+            <a
+                href="matches.html"
+                class="nav-link"
+            >
+                Connections
+            </a>
+
+            <a
+                href="chat.html"
+                class="nav-link"
+            >
+                Messages
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                Notifications
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="profile.html"
+                class="profile-mini"
+            >
+                👤 Profile
+            </a>
+
+            <a
+                href="settings.html"
+                class="icon-nav-btn"
+            >
+                ⚙
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- DISCOVER -->
+
+<main class="dashboard">
+
+    <div class="container">
+
+
+        <!-- HEADING -->
+
+        <div class="dashboard-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    DISCOVER
+                </span>
+
+                <h1>
+                    Find Your Community
+                </h1>
+
+                <p>
+                    Discover people who share your
+                    interests and hobbies.
+                </p>
+
+            </div>
+
+
+            <button
+                class="filter-btn"
+                id="filterBtn"
+                type="button"
+            >
+                ⚙ Filters
+            </button>
+
+        </div>
+
+
+
+        <!-- FILTER PANEL -->
+
+        <div
+            class="filter-panel"
+            id="filterPanel"
+        >
+
+            <div class="filter-group">
+
+                <label>
+                    Distance
+                </label>
+
+                <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="25"
+                    id="distanceFilter"
+                >
+
+                <span id="distanceValue">
+                    25 km
+                </span>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>
+                    Age Range
+                </label>
+
+                <select id="ageFilter">
+
+                    <option value="18-25">
+                        18 - 25
+                    </option>
+
+                    <option value="20-30">
+                        20 - 30
+                    </option>
+
+                    <option value="25-35">
+                        25 - 35
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+        <div class="filter-group">
+    <label>Search People</label>
+    <input
+        type="text"
+        id="discoverSearch"
+        placeholder="Search by name..."
+    >
+</div>
+
+
+
+        <!-- DISCOVERY LAYOUT -->
+
+        <section class="discover-layout">
+
+
+            <!-- MAIN CARD -->
+
+            <div
+                class="discover-card"
+                id="discoverCard"
+            >
+
+                <!-- JavaScript profile yahan render karega -->
+
+            </div>
+
+
+
+            <!-- SIDE INFO -->
+
+            <aside class="discover-sidebar">
+
+
+                <!-- PREFERENCES -->
+
+                <div class="side-card">
+
+                    <h3>
+                        Your Preferences
+                    </h3>
+
+
+                    <div class="preference-row">
+
+                        <span>
+                            📍 Location
+                        </span>
+
+                        <strong>
+                            25 km
+                        </strong>
+
+                    </div>
+
+
+                    <div class="preference-row">
+
+                        <span>
+                            🎂 Age
+                        </span>
+
+                        <strong>
+                            18 - 25
+                        </strong>
+
+                    </div>
+
+
+                    <div class="preference-row">
+
+                        <span>
+                            💜 Interests
+                        </span>
+
+                        <strong>
+                            8 selected
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="settings.html"
+                        class="side-link"
+                    >
+                        Edit Preferences →
+                    </a>
+
+                </div>
+
+
+
+                <!-- COMMUNITY CARD -->
+
+                <div class="side-card premium-card">
+
+                    <div class="premium-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Explore ConnectHub+
+                    </h3>
+
+                    <p>
+                        Discover more communities,
+                        interests and useful features.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                    >
+                        Explore Features
+                    </button>
+
+                </div>
+
+
+            </aside>
+
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

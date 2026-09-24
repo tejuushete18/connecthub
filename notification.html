@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub | Notifications</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">C</span>
+
+            <span class="logo-text">
+                Connect<span>Hub</span>
+            </span>
+        </a>
+
+        <nav class="desktop-nav">
+
+            <a href="dashboard.html" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="discover.html" class="nav-link">
+                Discover
+            </a>
+
+            <a href="matches.html" class="nav-link">
+                Connections
+            </a>
+
+            <a href="chat.html" class="nav-link">
+                Messages
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                Profile
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="notifications-page">
+
+    <div class="container">
+
+        <div class="notifications-heading">
+
+            <div>
+                <span class="section-eyebrow">
+                    ACTIVITY
+                </span>
+
+                <h1>Notifications 🔔</h1>
+
+                <p>
+                    Stay updated with your ConnectHub activity.
+                </p>
+            </div>
+
+            <button
+                class="btn btn-secondary"
+                id="clearNotifications">
+                Clear All
+            </button>
+
+        </div>
+
+
+        <div
+            class="notifications-container"
+            id="notificationsContainer">
+
+            <!-- JavaScript notifications yahan show karega -->
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const container =
+        document.getElementById(
+            "notificationsContainer"
+        );
+
+    const clearButton =
+        document.getElementById(
+            "clearNotifications"
+        );
+
+
+    function loadNotifications() {
+
+        const notifications =
+            JSON.parse(
+                localStorage.getItem(
+                    "connectHubNotifications"
+                )
+            ) || [];
+
+
+        container.innerHTML = "";
+
+
+        if (notifications.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="notifications-empty">
+
+                    <div class="empty-icon">
+                        🔔
+                    </div>
+
+                    <h2>No notifications yet</h2>
+
+                    <p>
+                        When something happens on
+                        ConnectHub, you'll see it here.
+                    </p>
+
+                    <a
+                        href="discover.html"
+                        class="btn btn-primary">
+                        Explore Discover →
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        notifications
+            .slice()
+            .reverse()
+            .forEach(function (notification, index) {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "notification-item";
+
+
+                item.innerHTML = `
+
+                    <div class="notification-icon">
+                        ${notification.icon || "🔔"}
+                    </div>
+
+                    <div class="notification-info">
+
+                        <strong>
+                            ${notification.title || "Notification"}
+                        </strong>
+
+                        <p>
+                            ${notification.message || ""}
+                        </p>
+
+                        <span>
+                            ${notification.time || "Recently"}
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="notification-delete"
+                        data-index="${index}">
+                        ×
+                    </button>
+
+                `;
+
+
+                container.appendChild(item);
+
+            });
+
+
+        document
+            .querySelectorAll(".notification-delete")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const index =
+                            Number(
+                                button.dataset.index
+                            );
+
+                        const notifications =
+                            JSON.parse(
+                                localStorage.getItem(
+                                    "connectHubNotifications"
+                                )
+                            ) || [];
+
+
+                        const actualIndex =
+                            notifications.length -
+                            1 -
+                            index;
+
+
+                        notifications.splice(
+                            actualIndex,
+                            1
+                        );
+
+
+                        localStorage.setItem(
+                            "connectHubNotifications",
+                            JSON.stringify(
+                                notifications
+                            )
+                        );
+
+
+                        loadNotifications();
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    clearButton.addEventListener(
+        "click",
+        function () {
+
+            localStorage.removeItem(
+                "connectHubNotifications"
+            );
+
+            loadNotifications();
+
+        }
+    );
+
+
+    loadNotifications();
+
+});
+
+</script>
+
+</body>
+
+</html>

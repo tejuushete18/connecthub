@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Messages | ConnectHub</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="app-page">
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <div class="logo-mark">
+                ♥
+            </div>
+
+            <div class="logo-text">
+                Connect<span>Hub</span>
+            </div>
+
+        </a>
+
+
+        <a
+            href="matches.html"
+            class="btn btn-outline"
+        >
+            ← Connections
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CHAT PAGE
+===================================================== -->
+
+<main class="chat-page">
+
+    <div class="chat-container">
+
+
+        <!-- =================================================
+             CONTACTS SIDEBAR
+        ================================================== -->
+
+        <aside class="chat-contacts">
+
+            <div class="chat-contacts-header">
+
+                <div>
+
+                    <h2>
+                        Messages
+                    </h2>
+
+                    <span
+                        id="chatUnreadInfo"
+                        class="chat-unread-info"
+                    >
+                        0 unread
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    aria-label="New message"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="chat-search">
+
+                <input
+                    type="search"
+                    id="chatSearch"
+                    placeholder="Search conversations..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- CONTACT LIST -->
+
+            <div
+                class="contacts-list"
+                id="contactsList"
+            >
+
+                <div class="contacts-empty">
+
+                    <div>
+                        💬
+                    </div>
+
+                    <p>
+                        Your conversations will
+                        appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             CHAT WINDOW
+        ================================================== -->
+
+        <section class="chat-window">
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+
+                <button
+                    type="button"
+                    class="chat-back-btn"
+                    onclick="history.back()"
+                    aria-label="Go back"
+                >
+                    ←
+                </button>
+
+
+                <!-- USER AVATAR -->
+
+                <div
+                    class="chat-user-avatar"
+                    id="chatAvatar"
+                >
+                    👤
+                </div>
+
+
+                <!-- USER INFO -->
+
+                <div class="chat-user-info">
+
+                    <h2 id="chatUserName">
+                        Select a connection
+                    </h2>
+
+                    <p id="chatUserStatus">
+                        Start a conversation
+                    </p>
+
+                </div>
+
+
+                <!-- MORE BUTTON -->
+
+                <button
+                    type="button"
+                    class="chat-more"
+                    aria-label="More options"
+                >
+                    ⋮
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MESSAGES
+            ================================================== -->
+
+            <div
+                class="chat-messages"
+                id="chatMessages"
+            >
+
+                <div class="chat-welcome">
+
+                    <div class="chat-welcome-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        Welcome to your messages
+                    </h3>
+
+                    <p>
+                        Select a connection and start
+                        chatting.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MESSAGE INPUT
+            ================================================= -->
+
+            <form
+                class="chat-input-area"
+                id="chatForm"
+            >
+
+
+                <!-- ATTACH BUTTON -->
+
+                <button
+                    type="button"
+                    class="attach-btn"
+                    aria-label="Attach"
+                >
+                    +
+                </button>
+
+
+                <!-- MESSAGE INPUT -->
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                    maxlength="500"
+                >
+
+
+                <!-- SEND BUTTON -->
+
+                <button
+                    type="submit"
+                    class="send-message"
+                    aria-label="Send message"
+                >
+                    ➤
+                </button>
+
+            </form>
+
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+<!-- =====================================================
+     CHAT UI IMPROVEMENT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const contactsList =
+            document.getElementById("contactsList");
+
+        const unreadInfo =
+            document.getElementById("chatUnreadInfo");
+
+
+        function getMessages() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "connectHubMessages"
+                )
+            ) || {};
+
+        }
+
+
+        function getConnections() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "connectHubConnections"
+                )
+            ) || [];
+
+        }
+
+
+        function getLastMessage(profileId) {
+
+            const messages = getMessages();
+
+            const conversation =
+                messages[profileId] || [];
+
+            if (!conversation.length) {
+                return {
+                    text: "Start a conversation",
+                    time: ""
+                };
+            }
+
+            const last =
+                conversation[conversation.length - 1];
+
+            return {
+                text: last.text || "Message",
+                time: last.time || ""
+            };
+
+        }
+
+
+        function renderChatInfo() {
+
+            const connections =
+                getConnections();
+
+            let totalUnread = 0;
+
+
+            connections.forEach(
+                function (profile) {
+
+                    const last =
+                        getLastMessage(profile.id);
+
+                    if (
+                        profile.unread &&
+                        Number(profile.unread) > 0
+                    ) {
+
+                        totalUnread +=
+                            Number(profile.unread);
+
+                    }
+
+                }
+            );
+
+
+            unreadInfo.textContent =
+                totalUnread + " unread";
+
+        }
+
+
+        renderChatInfo();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

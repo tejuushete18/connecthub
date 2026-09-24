@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub | My Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">C</span>
+
+                <span class="logo-text">
+                    Connect<span>Hub</span>
+                </span>
+            </a>
+
+            <nav class="desktop-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    Dashboard
+                </a>
+
+                <a href="discover.html" class="nav-link">
+                    Discover
+                </a>
+
+                <a href="matches.html" class="nav-link">
+                    Connections
+                </a>
+
+                <a href="chat.html" class="nav-link">
+                    Messages
+                </a>
+
+                <a href="profile.html" class="nav-link active">
+                    Profile
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- PROFILE PAGE -->
+    <main class="profile-page">
+
+        <div class="container">
+
+
+            <!-- PROFILE HERO -->
+            <section class="profile-hero">
+
+                <div class="profile-cover"></div>
+
+                <div class="profile-main">
+
+                    <div class="profile-avatar-large">
+                        👤
+                    </div>
+
+                    <div class="profile-main-info">
+
+                        <div class="profile-title-row">
+
+                            <h1 id="profileName">
+                                User
+                            </h1>
+
+                            <span class="profile-verified">
+                                ✓ Verified
+                            </span>
+
+                        </div>
+
+                        <p id="profileEmail">
+                            user@example.com
+                        </p>
+
+                        <span class="profile-online">
+                            <span></span>
+                            Online
+                        </span>
+
+                    </div>
+
+                    <a href="settings.html"
+                       class="btn btn-secondary">
+                        id="editProfileBtn">
+    ⚙️ Edit Profile
+</a>
+                    
+
+                </div>
+
+            </section>
+
+
+            <!-- PROFILE CONTENT -->
+            <section class="profile-content-grid">
+
+
+                <!-- ABOUT -->
+                <div class="profile-content-card">
+
+                    <span class="section-eyebrow">
+                        ABOUT ME
+                    </span>
+
+                    <h2>
+                        A little about me
+                    </h2>
+
+                    <p class="profile-about">
+                        Welcome to my ConnectHub profile!
+                        I'm here to discover new people,
+                        explore interesting communities and
+                        connect through shared interests.
+                    </p>
+
+                </div>
+
+
+                <!-- STATS -->
+                <div class="profile-content-card">
+
+                    <span class="section-eyebrow">
+                        MY STATS
+                    </span>
+
+                    <h2>
+                        ConnectHub activity
+                    </h2>
+
+                    <div class="profile-stat-grid">
+
+                        <div>
+                            <strong id="profileConnections">
+                                0
+                            </strong>
+
+                            <span>
+                                Connections
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong id="profileNotifications">
+                                0
+                            </strong>
+
+                            <span>
+                                Notifications
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>
+                                25+
+                            </strong>
+
+                            <span>
+                                Discover
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INTERESTS -->
+                <div class="profile-content-card profile-interests-card">
+
+                    <span class="section-eyebrow">
+                        MY INTERESTS
+                    </span>
+
+                    <h2>
+                        Things I enjoy ✨
+                    </h2>
+
+                    <div class="profile-interest-list">
+
+                        <span>🎵 Music</span>
+                        <span>📷 Photography</span>
+                        <span>✈️ Travel</span>
+                        <span>💻 Technology</span>
+                        <span>🎮 Gaming</span>
+                        <span>📚 Reading</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+                <div class="profile-content-card">
+
+                    <span class="section-eyebrow">
+                        QUICK LINKS
+                    </span>
+
+                    <h2>
+                        Explore
+                    </h2>
+
+                    <div class="profile-links">
+
+                        <a href="discover.html">
+                            🔎
+                            <span>
+                                Discover People
+                            </span>
+                            →
+                        </a>
+
+                        <a href="matches.html">
+                            👥
+                            <span>
+                                My Connections
+                            </span>
+                            →
+                        </a>
+
+                        <a href="chat.html">
+                            💬
+                            <span>
+                                My Messages
+                            </span>
+                            →
+                        </a>
+
+                        <a href="settings.html">
+                            ⚙️
+                            <span>
+                                Settings
+                            </span>
+                            →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROFILE BANNER -->
+            <section class="profile-bottom-banner">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        KEEP EXPLORING
+                    </span>
+
+                    <h2>
+                        Your community is waiting. 🌎
+                    </h2>
+
+                    <p>
+                        Discover new profiles and find
+                        people who share your interests.
+                    </p>
+
+                </div>
+
+                <a href="discover.html"
+                   class="btn btn-primary">
+                    Explore Now →
+                </a>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const user =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "currentUser"
+                        )
+                    ) ||
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubCurrentUser"
+                        )
+                    );
+
+
+                if (user) {
+
+                    const name =
+                        user.name || "User";
+
+                    const email =
+                        user.email || "No email";
+
+
+                    document.getElementById(
+                        "profileName"
+                    ).textContent = name;
+
+
+                    document.getElementById(
+                        "profileEmail"
+                    ).textContent = email;
+
+                }
+
+
+                const connections =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubConnections"
+                        )
+                    ) || [];
+
+
+                const notifications =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubNotifications"
+                        )
+                    ) || [];
+
+
+                document.getElementById(
+                    "profileConnections"
+                ).textContent =
+                    connections.length;
+
+
+                document.getElementById(
+                    "profileNotifications"
+                ).textContent =
+                    notifications.length;
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

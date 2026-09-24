@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | ConnectHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <div class="logo-mark">♥</div>
+
+                <div class="logo-text">
+                    Connect<span>Hub</span>
+                </div>
+            </a>
+
+            <a href="signup.html" class="btn btn-primary">
+                Create Account
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- LOGIN -->
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+                <div class="auth-icon">♥</div>
+
+                <h1>Welcome Back</h1>
+
+                <p>
+                    Sign in to continue discovering
+                    meaningful connections.
+                </p>
+            </div>
+
+
+            <form id="loginForm" class="auth-form">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#" class="forgot-link">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <label class="checkbox-label">
+
+                    <input type="checkbox">
+
+                    <span>
+                        Remember me
+                    </span>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary auth-submit"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <div class="auth-divider">
+                <span>or continue with</span>
+            </div>
+
+
+            <div class="social-login">
+
+                <button type="button" class="social-login-btn">
+                    <span>G</span>
+                    Google
+                </button>
+
+                <button type="button" class="social-login-btn">
+                    <span>f</span>
+                    Facebook
+                </button>
+
+            </div>
+
+
+            <p class="auth-footer">
+                Don't have an account?
+                <a href="signup.html">Create one</a>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

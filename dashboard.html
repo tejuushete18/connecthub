@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">C</span>
+                <span class="logo-text">
+                    Connect<span>Hub</span>
+                </span>
+            </a>
+
+            <nav class="desktop-nav">
+
+                <a href="dashboard.html"
+                   class="nav-link active">
+                    Dashboard
+                </a>
+
+                <a href="discover.html"
+                   class="nav-link">
+                    Discover
+                </a>
+
+                <a href="matches.html"
+                   class="nav-link">
+                    Connections
+                </a>
+
+                <a href="chat.html"
+                   class="nav-link">
+                    Messages
+                </a>
+
+                <a href="profile.html"
+                   class="nav-link">
+                    Profile
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN DASHBOARD -->
+    <main class="dashboard-page">
+
+        <div class="container">
+
+
+            <!-- WELCOME -->
+            <section class="dashboard-welcome">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        YOUR DASHBOARD
+                    </span>
+
+                    <h1>
+                        Welcome back,
+                        <span id="dashboardUserName">
+                            User
+                        </span> 👋
+                    </h1>
+
+                    <p>
+                        Discover people, explore interests
+                        and stay connected with your community.
+                    </p>
+
+                </div>
+
+                <a href="discover.html"
+                   class="btn btn-primary">
+                    Discover People →
+                </a>
+
+            </section>
+
+
+            <!-- STATS -->
+            <section class="dashboard-stats">
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+                        <strong id="dashboardConnections">
+                            0
+                        </strong>
+
+                        <span>
+                            Connections
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        💬
+                    </div>
+
+                    <div>
+                        <strong id="dashboardMessages">
+                            0
+                        </strong>
+
+                        <span>
+                            Messages
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        🔔
+                    </div>
+
+                    <div>
+                        <strong id="dashboardNotifications">
+                            0
+                        </strong>
+
+                        <span>
+                            Notifications
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        🌎
+                    </div>
+
+                    <div>
+                        <strong>
+                            25+
+                        </strong>
+
+                        <span>
+                            People to Discover
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="dashboard-main-card">
+
+                <div class="dashboard-card-heading">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            QUICK ACTIONS
+                        </span>
+
+                        <h2>
+                            Explore ConnectHub
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-action-grid">
+
+
+                    <a href="discover.html"
+                       class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            🔎
+                        </div>
+
+                        <div>
+                            <strong>
+                                Discover
+                            </strong>
+
+                            <span>
+                                Explore new people
+                            </span>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a href="matches.html"
+                       class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <strong>
+                                Connections
+                            </strong>
+
+                            <span>
+                                View your connections
+                            </span>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a href="chat.html"
+                       class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            💬
+                        </div>
+
+                        <div>
+                            <strong>
+                                Messages
+                            </strong>
+
+                            <span>
+                                Open your chats
+                            </span>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a href="profile.html"
+                       class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            👤
+                        </div>
+
+                        <div>
+                            <strong>
+                                My Profile
+                            </strong>
+
+                            <span>
+                                View your profile
+                            </span>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- BOTTOM SECTION -->
+            <section class="dashboard-bottom-grid">
+
+
+                <!-- ACTIVITY -->
+                <div class="dashboard-main-card">
+
+                    <span class="section-eyebrow">
+                        RECENT ACTIVITY
+                    </span>
+
+                    <h2>
+                        What's happening?
+                    </h2>
+
+
+                    <div class="activity-list">
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🔎
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Discover new people
+                                </strong>
+
+                                <p>
+                                    Explore profiles based on
+                                    shared interests.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                👥
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Build your community
+                                </strong>
+
+                                <p>
+                                    Connect with people who
+                                    share your interests.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                💬
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Start conversations
+                                </strong>
+
+                                <p>
+                                    Message your connections
+                                    anytime.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE CARD -->
+                <div class="dashboard-profile-card">
+
+                    <div class="dashboard-profile-avatar">
+                        👤
+                    </div>
+
+                    <h2 id="profileDashboardName">
+                        Your Profile
+                    </h2>
+
+                    <p>
+                        Keep your profile updated so
+                        people can know your interests.
+                    </p>
+
+                    <a href="profile.html"
+                       class="btn btn-primary">
+                        View Profile
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- DISCOVER BANNER -->
+            <section class="dashboard-discover-banner">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        FIND YOUR COMMUNITY
+                    </span>
+
+                    <h2>
+                        Ready to discover
+                        something new? ✨
+                    </h2>
+
+                    <p>
+                        Explore profiles and find people
+                        with interests similar to yours.
+                    </p>
+
+                </div>
+
+                <a href="discover.html"
+                   class="btn btn-primary">
+                    Start Exploring →
+                </a>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const user =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "currentUser"
+                        )
+                    ) ||
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubCurrentUser"
+                        )
+                    );
+
+
+                if (user) {
+
+                    const name =
+                        user.name || "User";
+
+
+                    const dashboardName =
+                        document.getElementById(
+                            "dashboardUserName"
+                        );
+
+                    const profileName =
+                        document.getElementById(
+                            "profileDashboardName"
+                        );
+
+
+                    if (dashboardName) {
+                        dashboardName.textContent =
+                            name;
+                    }
+
+
+                    if (profileName) {
+                        profileName.textContent =
+                            name;
+                    }
+
+                }
+
+
+                const connections =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubConnections"
+                        )
+                    ) || [];
+
+
+                const notifications =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubNotifications"
+                        )
+                    ) || [];
+
+
+                const messages =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "connectHubMessages"
+                        )
+                    ) || [];
+
+
+                document.getElementById(
+                    "dashboardConnections"
+                ).textContent =
+                    connections.length;
+
+
+                document.getElementById(
+                    "dashboardNotifications"
+                ).textContent =
+                    notifications.length;
+
+
+                document.getElementById(
+                    "dashboardMessages"
+                ).textContent =
+                    messages.length;
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

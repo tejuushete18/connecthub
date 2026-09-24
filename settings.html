@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub | Settings</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">C</span>
+            <span class="logo-text">
+                Connect<span>Hub</span>
+            </span>
+        </a>
+
+        <nav class="desktop-nav">
+
+            <a href="dashboard.html" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="discover.html" class="nav-link">
+                Discover
+            </a>
+
+            <a href="matches.html" class="nav-link">
+                Connections
+            </a>
+
+            <a href="chat.html" class="nav-link">
+                Messages
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                Profile
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="settings-page">
+
+    <div class="container">
+
+        <div class="settings-heading">
+
+            <span class="section-eyebrow">
+                ACCOUNT
+            </span>
+
+            <h1>Settings ⚙️</h1>
+
+            <p>
+                Manage your profile and ConnectHub preferences.
+            </p>
+
+        </div>
+
+
+        <div class="settings-layout">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="settings-sidebar">
+
+                <a href="#account" class="settings-tab active">
+                    👤
+                    <span>Account</span>
+                </a>
+
+                <a href="#preferences" class="settings-tab">
+                    🎨
+                    <span>Preferences</span>
+                </a>
+
+                <a href="#notifications" class="settings-tab">
+                    🔔
+                    <span>Notifications</span>
+                </a>
+
+                <a href="#privacy" class="settings-tab">
+                    🔒
+                    <span>Privacy</span>
+                </a>
+
+                <a href="#danger" class="settings-tab danger-tab">
+                    🚪
+                    <span>Account Actions</span>
+                </a>
+
+            </aside>
+
+
+            <!-- SETTINGS CONTENT -->
+
+            <section class="settings-content">
+
+
+                <!-- ACCOUNT -->
+
+                <div class="settings-card" id="account">
+
+                    <span class="section-eyebrow">
+                        ACCOUNT INFORMATION
+                    </span>
+
+                    <h2>Profile details</h2>
+
+                    <div class="settings-profile-preview">
+
+                        <div class="settings-avatar">
+                            👤
+                        </div>
+
+                        <div>
+                            <h3 id="settingsUserName">
+                                User
+                            </h3>
+
+                            <p id="settingsUserEmail">
+                                user@example.com
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-form">
+
+                        <div class="setting-input-group">
+
+                            <label>Display Name</label>
+
+                            <input
+                                type="text"
+                                id="settingsName"
+                                placeholder="Enter your name"
+                            >
+
+                        </div>
+
+
+                        <div class="setting-input-group">
+
+                            <label>Email</label>
+
+                            <input
+                                type="email"
+                                id="settingsEmail"
+                                placeholder="Enter your email"
+                            >
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-primary"
+                            id="saveProfileBtn"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREFERENCES -->
+
+                <div class="settings-card" id="preferences">
+
+                    <span class="section-eyebrow">
+                        APPEARANCE
+                    </span>
+
+                    <h2>Preferences</h2>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Compact interface</strong>
+
+                            <p>
+                                Keep the interface clean and minimal.
+                            </p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="compactMode"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+                    <div class="setting-row">
+    <div>
+        <strong>Dark Mode</strong>
+        <p>Use a darker theme across ConnectHub.</p>
+    </div>
+
+    <label class="switch">
+        <input type="checkbox" id="darkMode">
+        <span class="slider"></span>
+    </label>
+</div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Show online status</strong>
+
+                            <p>
+                                Let other users see when you are online.
+                            </p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="onlineStatus"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTIFICATIONS -->
+
+                <div class="settings-card" id="notifications">
+
+                    <span class="section-eyebrow">
+                        NOTIFICATIONS
+                    </span>
+
+                    <h2>Notification preferences</h2>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Connection requests</strong>
+
+                            <p>
+                                Get notified about new connections.
+                            </p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="connectionNotifications"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>New messages</strong>
+
+                            <p>
+                                Receive notifications for messages.
+                            </p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="messageNotifications"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRIVACY -->
+
+                <div class="settings-card" id="privacy">
+
+                    <span class="section-eyebrow">
+                        PRIVACY
+                    </span>
+
+                    <h2>Privacy settings</h2>
+
+
+                    <div class="setting-row">
+
+                        <div>
+
+                            <strong>Profile visibility</strong>
+
+                            <p>
+                                Allow your profile to appear in Discover.
+                            </p>
+
+                        </div>
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="profileVisibility"
+                                checked
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNT ACTIONS -->
+
+                <div class="settings-card danger-card" id="danger">
+
+                    <span class="section-eyebrow">
+                        ACCOUNT ACTIONS
+                    </span>
+
+                    <h2>Logout</h2>
+
+                    <p>
+                        Sign out from your current ConnectHub account.
+                    </p>
+
+                    <button
+                        class="btn logout-settings-btn"
+                        id="settingsLogout"
+                    >
+                        Logout from ConnectHub
+                    </button>
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const user =
+        JSON.parse(localStorage.getItem("currentUser")) ||
+        JSON.parse(localStorage.getItem("connectHubCurrentUser"));
+
+    if (user) {
+
+        const name = user.name || "User";
+        const email = user.email || "No email";
+
+        document.getElementById("settingsUserName").textContent = name;
+        document.getElementById("settingsUserEmail").textContent = email;
+
+        document.getElementById("settingsName").value = name;
+        document.getElementById("settingsEmail").value = email;
+    }
+
+
+    /* SAVE PROFILE */
+
+    document
+        .getElementById("saveProfileBtn")
+        .addEventListener("click", function () {
+
+            const name =
+                document.getElementById("settingsName").value.trim();
+
+            const email =
+                document.getElementById("settingsEmail").value.trim();
+
+            if (!name || !email) {
+
+                alert("Please fill all fields.");
+                return;
+            }
+
+
+            let currentUser =
+                JSON.parse(localStorage.getItem("currentUser")) ||
+                JSON.parse(localStorage.getItem("connectHubCurrentUser")) ||
+                {};
+
+            currentUser.name = name;
+            currentUser.email = email;
+
+
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(currentUser)
+            );
+
+            localStorage.setItem(
+                "connectHubCurrentUser",
+                JSON.stringify(currentUser)
+            );
+
+
+            document.getElementById(
+                "settingsUserName"
+            ).textContent = name;
+
+            document.getElementById(
+                "settingsUserEmail"
+            ).textContent = email;
+
+
+            alert("Profile updated successfully! ✅");
+
+        });
+
+
+    /* COMPACT MODE */
+
+    const compactMode =
+        document.getElementById("compactMode");
+
+    if (
+        localStorage.getItem("connectHubCompactMode")
+        === "true"
+    ) {
+        compactMode.checked = true;
+    }
+
+
+    compactMode.addEventListener("change", function () {
+
+        localStorage.setItem(
+            "connectHubCompactMode",
+            compactMode.checked
+        );
+
+    });
+
+
+    /* ONLINE STATUS */
+
+    const onlineStatus =
+        document.getElementById("onlineStatus");
+
+    onlineStatus.checked =
+        localStorage.getItem("connectHubOnlineStatus")
+        !== "false";
+
+
+    onlineStatus.addEventListener("change", function () {
+
+        localStorage.setItem(
+            "connectHubOnlineStatus",
+            onlineStatus.checked
+        );
+
+    });
+
+
+    /* LOGOUT */
+
+    document
+        .getElementById("settingsLogout")
+        .addEventListener("click", function () {
+
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("connectHubCurrentUser");
+            localStorage.removeItem("connectHubLoggedIn");
+
+            window.location.href = "index.html";
+
+        });
+
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const darkMode = document.getElementById("darkMode");
+
+    if (!darkMode) return;
+
+    if (localStorage.getItem("connectHubDarkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        darkMode.checked = true;
+    }
+
+    darkMode.addEventListener("change", function () {
+
+        if (darkMode.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("connectHubDarkMode", "true");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("connectHubDarkMode", "false");
+        }
+
+    });
+
+});
+</script>
+</body>
+
+</html>
